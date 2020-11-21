@@ -23,11 +23,21 @@ _vue["default"].use(_vuex["default"]);
 
 var _default = new _vuex["default"].Store({
   state: {
-    usuarios: []
+    usuarios: [],
+    User: {
+      id: "",
+      Nombre: "",
+      Apellido: "",
+      Edad: "",
+      Correo: ""
+    }
   },
   mutations: {
     getUsuariosMutation: function getUsuariosMutation(state, payload) {
       state.usuarios = payload;
+    },
+    getUsuerMutation: function getUsuerMutation(state, payload) {
+      state.User = payload;
     },
     deleteUserMutation: function deleteUserMutation(state, payload) {
       state.usuarios = state.usuarios.filter(function (items) {
@@ -36,33 +46,40 @@ var _default = new _vuex["default"].Store({
     }
   },
   actions: {
-    /*
-    async getUsuariosAction({commit}){
-      const info =await fetch('http://localhost:3000/usuarios/')
-      const data = await info.json();
-      console.log(data)
-      commit('getUsuariosMutation',data)
-        },
-    */
     getUsuariosAction: function getUsuariosAction(_ref) {
       var commit = _ref.commit;
 
       _vue["default"].axios.get('http://localhost:3000/usuarios/').then(function (response) {
-        console.log(response.data);
         commit('getUsuariosMutation', response.data);
       });
     },
-    deleteUserAction: function deleteUserAction(_ref2, id) {
+    getUserAction: function getUserAction(_ref2, id) {
       var commit = _ref2.commit;
+
+      _vue["default"].axios.get("http://localhost:3000/usuarios/".concat(id)).then(function (response) {
+        commit('getUsuerMutation', response.data);
+      });
+    },
+    deleteUserAction: function deleteUserAction(_ref3, id) {
+      var commit = _ref3.commit;
 
       _vue["default"].axios["delete"]("http://localhost:3000/usuarios/".concat(id)).then(function () {
         commit('deleteUserMutation', id);
       });
     },
-    crearUserAction: function crearUserAction(_ref3, usuarioNuevo) {
-      var commit = _ref3.commit;
+    crearUserAction: function crearUserAction(_ref4, usuarioNuevo) {
+      var commit = _ref4.commit;
 
       _vue["default"].axios.post('http://localhost:3000/usuarios/', usuarioNuevo).then(function (response) {
+        _router["default"].push('/');
+      });
+    },
+    editarUserAction: function editarUserAction(_ref5, usuarioNuevo) {
+      var commit = _ref5.commit;
+
+      _vue["default"].axios.put("http://localhost:3000/usuarios/".concat(usuarioNuevo.id), usuarioNuevo).then(function (response) {
+        console.log(usuarioNuevo);
+
         _router["default"].push('/');
       });
     }
