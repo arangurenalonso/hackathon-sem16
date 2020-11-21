@@ -1,0 +1,46 @@
+{
+  "usuarios": [
+    {
+      "id": 1,
+      "Nombre": "José Alonso",
+      "Apellido": "Aranguren Martinez",
+      "Edad": "28",
+      "Correo": "aranguren.alonso@gmail.com"
+    },
+    {
+      "id": 2,
+      "Nombre": "José Alonso",
+      "Apellido": "Aranguren Martinez",
+      "Edad": "28",
+      "Correo": "aranguren.alonso@gmail.com"
+    },
+    {
+      "id": 3,
+      "Nombre": "José Alonso",
+      "Apellido": "Aranguren Martinez",
+      "Edad": "28",
+      "Correo": "aranguren.alonso@gmail.com"
+    },
+    {
+      "id": 4,
+      "Nombre": "José Alonso",
+      "Apellido": "Aranguren Martinez",
+      "Edad": "28",
+      "Correo": "aranguren.alonso@gmail.com"
+    },
+    {
+      "id": 5,
+      "Nombre": "José Alonso",
+      "Apellido": "Aranguren Martinez",
+      "Edad": "28",
+      "Correo": "aranguren.alonso@gmail.com"
+    },
+    {
+      "Nombre": "aaaa",
+      "Apellido": "ssss",
+      "Edad": "dddd",
+      "Correo": "ffff",
+      "id": 6
+    }
+  ]
+}
